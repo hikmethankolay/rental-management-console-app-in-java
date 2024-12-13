@@ -1,18 +1,26 @@
-# Rental Management Console Application
+# Rental Management App
 
-This is a console-based application for managing rental properties, tenants, maintenance tasks, and rent payments. The project is structured to use Java (with Maven), ensuring cross-platform compatibility and robust functionality.
+## Overview
+The Rental Management System is a Java-based application built with Maven for cross-platform compatibility. It employs Doxygen for documentation and unit testing, providing a console-based interface navigable via keyboard inputs.
+
+---
+
+## System Architecture
+
+The system utilizes the standard Java file input/output library with custom file operation functions:
+
+- **file_read()**: Reads data from a file.
+- **file_write()**: Deletes all data and writes new data to a file.
+- **file_edit()**: Edits a specified record line.
+- **file_line_delete()**: Deletes a specified record line.
+- **file_append()**: Appends a record at the end of the file.
 
 ---
 
 ## Functionalities
+The application supports the following features:
 
-### Menu Options
-- **View, Register, Update, or Delete Records**: Manage tenants, properties, maintenance tasks, and rent records.
-- **Search and Sort**: Features for easy navigation and organization.
-
-### Data Categories
-
-#### 1. Tenant Management:
+### Tenant Management
 - TenantID
 - PropertyID
 - Rent
@@ -20,7 +28,7 @@ This is a console-based application for managing rental properties, tenants, mai
 - Name
 - Surname
 
-#### 2. Property Management:
+### Property Management
 - PropertyID
 - PropertyAge
 - Bedrooms
@@ -29,19 +37,31 @@ This is a console-based application for managing rental properties, tenants, mai
 - Size
 - Address
 
-#### 3. Maintenance Management:
+### Maintenance Management
 - PropertyID
 - Cost
 - Priority
 - Maintenance Type
 - Expected Finishing Date
 
-#### 4. Rent Management:
+### Rent Management
 - TenantID
 - Current Rent Debt
 - Due Date
 
 ---
+
+## Testing and Validation
+The system has been tested and documented using JUnit 4, achieving:
+
+- **95% Test Coverage**
+- **100% Success Rate in Unit Tests**
+
+---
+
+## Releases
+
+- [![GitHub release badge](https://badgen.net/github/release/ucoruh/eclipse-java-maven-template)](https://github.com/ucoruh/eclipse-java-maven-template/releases/latest)
 
 ## Platforms
 
@@ -49,96 +69,50 @@ This is a console-based application for managing rental properties, tenants, mai
 - ![macOS badge](assets/badge-macos.svg)
 - ![Windows badge](assets/badge-windows.svg)
 
----
+## Test Coverage
 
-## Testing and Validation
+[![Release](https://github.com/ucoruh/eclipse-java-maven-template/actions/workflows/release.yml/badge.svg)](https://github.com/ucoruh/eclipse-java-maven-template/actions/workflows/release.yml)
 
-- **Unit Testing**: Comprehensive testing using gtest and CTest, achieving 95% test coverage and 100% success rate.
-- **Validation**: Ensures all functionalities operate correctly under different scenarios and data sizes.
+**Coverage:**
 
----
+- ![All](assets/badge_combined.svg)
 
-## Installation and Setup
+**Branch Coverage:**
 
-### Prerequisites
-1. **CMake**: For building the C modules.
-2. **Maven**: For managing Java dependencies and builds.
-3. **JDK**: Java Development Kit.
-4. **LCOV**: For code coverage reports.
-5. **Coverxygen**: For parsing Doxygen documentation.
+- ![Branch Coverage](assets/badge_branchcoverage.svg)
 
-### Clone the Repository
-```bash
-git clone https://github.com/username/rental-management-app.git
-cd rental-management-app
-```
+**Line Coverage:**
 
-### Build the Project
-#### For C Modules:
-```bash
-cmake .
-make
-```
-#### For Java Modules:
-```bash
-mvn clean install
-```
+- ![Line Coverage](assets/badge_linecoverage.svg)
 
-### Run the Application
-#### For C Modules:
-```bash
-./rental_management_app
-```
-#### For Java Modules:
-```bash
-java -jar target/rental-management-app-1.0.jar
-```
+**Method Coverage:**
+
+- ![Method Coverage](assets/badge_methodcoverage.svg)
 
 ---
 
-## Test Coverage and Reports
+## Install Requirements
 
-### Code Coverage
-- **LCOV**: Use to generate coverage reports for C modules.
-- **JaCoCo**: Integrated for Java modules with Maven.
+### Required Tools
 
-### Generate Reports
-- **HTML Coverage Reports**:
-```bash
-reportgenerator "-reports:target/site/jacoco/jacoco.xml" "-sourcedirs:src/main/java" "-targetdir:coveragereport" -reporttypes:Html
-```
+1. **Eclipse**  
+   [Eclipse Downloads | The Eclipse Foundation](https://www.eclipse.org/downloads/)
 
-- **Documentation Coverage**:
-```bash
-python -m coverxygen --xml-dir ./docs/xml --src-dir ./src --format lcov --output ./coverage.info
-```
+2. **Maven**  
+   [Maven – Download Apache Maven](https://maven.apache.org/download.cgi)
 
----
+3. **JDK**  
+   [Download JDK](https://www.eclipse.org/downloads/)
 
-## Documentation and Code Formatting
+4. **LCOV**  
+   [Installation Instructions](https://fredgrott.medium.com/lcov-on-windows-7c58dda07080)
 
-### Doxygen Setup
-1. Install Doxygen and Graphviz.
-2. Generate the default configuration file:
+5. **Coverxygen**  
+   [coverxygen · PyPI](https://pypi.org/project/coverxygen/)
+   [GitHub - psycofdj/coverxygen](https://github.com/psycofdj/coverxygen)
+
+6. **ReportGenerator**  
+   [ReportGenerator Official Website](https://reportgenerator.io/)
    ```bash
-   doxygen -g
+   dotnet tool install -g dotnet-reportgenerator-globaltool
    ```
-3. Update the `Doxyfile` to output documentation in the `./docs` directory.
-
-### Code Formatting with AStyle
-1. Install AStyle:
-   ```bash
-   choco install astyle
-   ```
-2. Format code:
-   ```bash
-   astyle --options=astyle-options.txt --recursive *.c *.h *.java
-   ```
-
----
-
-## License
-This project is licensed under the [MIT License](LICENSE).
-
-For any issues or feature requests, please open a ticket on the [GitHub Repository](https://github.com/username/rental-management-app/issues).
-
